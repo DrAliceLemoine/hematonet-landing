@@ -13,3 +13,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Small, elegant tweaks for landing page branding */
+.brand-title {
+  letter-spacing: -0.02em;
+}
+
+.trademark sup {
+  font-size: 0.6em;
+  vertical-align: super;
+  opacity: 0.85;
+  margin-left: 0.12rem;
+}
+
+/* Hero and CTA tweaks */
+.brand-cta {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.brand-cta:hover {
+  transform: translateY(-3px);
+}

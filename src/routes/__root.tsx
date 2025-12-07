@@ -3,8 +3,10 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import ClerkProvider from '../integrations/clerk/provider'
+import { LanguageProvider } from '../contexts/LanguageContext'
 
 import appCss from '../styles.css?url'
 
@@ -19,13 +21,22 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'HematoNet - Plateforme d\'analyse hématologique',
+        title: 'hemato.tech - Plateforme d\'analyse hématologique',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/favicon.svg',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/favicon.svg',
       },
     ],
   }),
@@ -39,22 +50,27 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        <ClerkProvider>
-          <Header />
-          {children}
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-            ]}
-          />
-        </ClerkProvider>
+      <body className="flex flex-col min-h-screen">
+        <LanguageProvider>
+          <ClerkProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <TanStackDevtools
+              config={{
+                position: 'bottom-right',
+              }}
+              plugins={[
+                {
+                  name: 'Tanstack Router',
+                  render: <TanStackRouterDevtoolsPanel />,
+                },
+              ]}
+            />
+          </ClerkProvider>
+        </LanguageProvider>
         <Scripts />
       </body>
     </html>

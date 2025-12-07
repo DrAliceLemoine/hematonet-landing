@@ -9,6 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoNeonRouteImport } from './routes/demo/neon'
 import { Route as DemoClerkRouteImport } from './routes/demo/clerk'
@@ -20,6 +24,26 @@ import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr
 import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
 import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -73,6 +97,10 @@ const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/login': typeof LoginRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/neon': typeof DemoNeonRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -85,6 +113,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/login': typeof LoginRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/neon': typeof DemoNeonRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -98,6 +130,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/login': typeof LoginRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/neon': typeof DemoNeonRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -112,6 +148,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/contact'
+    | '/features'
+    | '/login'
     | '/demo/clerk'
     | '/demo/neon'
     | '/demo/api/names'
@@ -124,6 +164,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/contact'
+    | '/features'
+    | '/login'
     | '/demo/clerk'
     | '/demo/neon'
     | '/demo/api/names'
@@ -136,6 +180,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/contact'
+    | '/features'
+    | '/login'
     | '/demo/clerk'
     | '/demo/neon'
     | '/demo/api/names'
@@ -149,6 +197,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  FeaturesRoute: typeof FeaturesRoute
+  LoginRoute: typeof LoginRoute
   DemoClerkRoute: typeof DemoClerkRoute
   DemoNeonRoute: typeof DemoNeonRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
@@ -162,6 +214,34 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -237,6 +317,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  FeaturesRoute: FeaturesRoute,
+  LoginRoute: LoginRoute,
   DemoClerkRoute: DemoClerkRoute,
   DemoNeonRoute: DemoNeonRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,

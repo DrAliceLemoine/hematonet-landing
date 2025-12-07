@@ -7,119 +7,110 @@ import {
   FileText,
   Plug,
 } from 'lucide-react'
+import { useLanguage } from '../contexts/LanguageContext'
+import { Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
-  const features = [
-    {
-      icon: <Database className="w-12 h-12 text-red-400" />,
-      title: 'Centralisation des résultats',
-      description:
-        'Centralisez tous les résultats de tests sanguins en un seul endroit sécurisé. Accédez rapidement aux données de vos patients et suivez leur évolution dans le temps.',
-    },
-    {
-      icon: <Activity className="w-12 h-12 text-red-400" />,
-      title: 'Analyse des anomalies',
-      description:
-        'Détectez automatiquement les anomalies dans les paramètres sanguins. Visualisez les écarts par rapport aux valeurs normales et identifiez les tendances préoccupantes.',
-    },
-    {
-      icon: <Brain className="w-12 h-12 text-red-400" />,
-      title: 'Suggestions de diagnostics',
-      description:
-        'Bénéficiez de suggestions de diagnostics potentiels grâce à notre base de données d\'experts et à notre algorithme d\'apprentissage automatique. Un outil d\'aide à la décision pour les professionnels.',
-    },
-    {
-      icon: <Users className="w-12 h-12 text-red-400" />,
-      title: 'Suivi des patients',
-      description:
-        'Outils de suivi complets pour les hématologues. Gérez les dossiers patients, consultez l\'historique médical et planifiez les suivis avec facilité.',
-    },
-    {
-      icon: <FileText className="w-12 h-12 text-red-400" />,
-      title: 'Rapports détaillés',
-      description:
-        'Générez des rapports d\'analyse complets et professionnels. Exportez les données pour vos dossiers médicaux ou pour partager avec vos collègues.',
-    },
-    {
-      icon: <Plug className="w-12 h-12 text-red-400" />,
-      title: 'Intégration facilitée',
-      description:
-        'Intégrez facilement des données provenant de différents dispositifs de diagnostic. Compatible avec les principaux systèmes d\'analyse hématologique du marché.',
-    },
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      <section className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-rose-500/10 to-pink-500/10"></div>
-        <div className="relative max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
-              <Activity className="w-16 h-16 md:w-20 md:h-20 text-white" />
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+      <header className="py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-4 mb-6">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg">
+              <Activity className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-6xl md:text-7xl font-black text-white [letter-spacing:-0.08em]">
-              <span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
-                HEMATONET
-              </span>
-            </h1>
+            <div className="text-left">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-white brand-title">HemaPredict<span className="trademark"><sup>™</sup></span></h1>
+              <p className="text-lg text-amber-200/90 mt-1">Analyse prédictive hématologique—claire, sécurisée et conçue pour la pratique clinique.</p>
+            </div>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-            Plateforme d'analyse des données hématologiques
+
+          <p className="mt-6 text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            HemaPredict™ propose une modélisation patient-spécifique des paramètres sanguins, des projections temporelles et des analyses scénarisées pour aider les équipes médicales à anticiper l'évolution clinique et à optimiser les décisions thérapeutiques.
           </p>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-            HematoNet est une plateforme web dédiée à l'analyse des données hématologiques pour les professionnels de santé. 
-            Elle permet de centraliser les résultats de tests sanguins, d'analyser les anomalies dans les paramètres sanguins 
-            et de suggérer des pistes de diagnostics potentiels grâce à une base de données d'experts et à un algorithme d'apprentissage automatique.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <button className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-red-500/50">
-              Commencer
-            </button>
-            <p className="text-gray-400 text-sm mt-2">
-              Accédez à votre espace professionnel pour commencer l'analyse
+
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Link to="/demo" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
+            <Link to="/contact" className="text-amber-300 underline">Contactez notre équipe</Link>
+          </div>
+        </div>
+      </header>
+
+      <main className="px-6">
+        <section className="max-w-6xl mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="md:col-span-2 bg-slate-800/40 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-white mb-3">Présentation du produit</h2>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              HemaPredict™ est une plateforme d'aide à la décision hématologique destinée aux établissements de santé et aux équipes spécialisées. Elle transforme les données cliniques en projections interprétables et fournit un rapport synthétique prêt à être intégré dans le parcours patient.
             </p>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
-          Fonctionnalités principales
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-red-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10"
-            >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {feature.description}
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div>
+                <h3 className="text-white font-semibold mb-2">Fonction prédictive</h3>
+                <p className="text-slate-300 text-sm">Construction d'un modèle patient-spécifique, projections temporelles des paramètres sanguins et simulation d'événements cliniques ou d'interventions thérapeutiques.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-2">Rapport exploitable</h3>
+                <p className="text-slate-300 text-sm">Rapports structurés présentant tendances, comparaisons de scénarios et recommandations interprétables par les cliniciens.</p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
 
-      <section className="py-16 px-6 max-w-4xl mx-auto text-center">
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Pour les professionnels de santé
-          </h2>
-          <p className="text-lg text-gray-300 mb-6">
-            HematoNet offre également des outils de suivi des patients pour les hématologues 
-            et permet d'intégrer facilement des données provenant de différents dispositifs de diagnostic.
-          </p>
-          <p className="text-gray-400">
-            Une solution complète pour améliorer la qualité des soins et optimiser votre pratique clinique.
-          </p>
-        </div>
-      </section>
+          <aside className="hidden md:block bg-slate-800/40 border border-slate-700 rounded-lg p-6">
+            <div className="flex items-start gap-3 mb-3">
+              <Brain className="w-8 h-8 text-amber-400" />
+              <div>
+                <h4 className="text-white font-semibold">HemaStability Score™ (IVH)</h4>
+                <p className="text-slate-300 text-sm">Indice synthétique évaluant la stabilité des paramètres hématologiques et aidant à prioriser les actions cliniques.</p>
+              </div>
+            </div>
+
+            <div className="mt-3 bg-slate-700/30 rounded-md p-3 text-slate-200 text-sm">
+              Rapport condensé : tendances, seuils d'alerte et observations cliniques pour faciliter la synthèse lors des consultations.
+            </div>
+          </aside>
+        </section>
+
+        <section className="max-w-6xl mx-auto py-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6">Bénéfices cliniques</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+              <Users className="mx-auto mb-3 w-10 h-10 text-amber-400" />
+              <h3 className="text-white font-semibold mb-2">Simplicité d'usage</h3>
+              <p className="text-slate-300 text-sm">Interface claire, rapports prêts à l'emploi et intégration fluide aux flux cliniques.</p>
+            </div>
+
+            <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+              <Activity className="mx-auto mb-3 w-10 h-10 text-amber-400" />
+              <h3 className="text-white font-semibold mb-2">Aide à la décision</h3>
+              <p className="text-slate-300 text-sm">Projections et scénarios qui étayent les choix thérapeutiques et les discussions multidisciplinaires.</p>
+            </div>
+
+            <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+              <Brain className="mx-auto mb-3 w-10 h-10 text-amber-400" />
+              <h3 className="text-white font-semibold mb-2">Sécurité & conformité</h3>
+              <p className="text-slate-300 text-sm">Protection des données et chaîne de traitement conçues pour l'usage médical.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-6xl mx-auto py-12 text-center">
+          <div className="inline-block bg-amber-600/10 border border-amber-600/30 rounded-2xl p-8">
+            <h3 className="text-xl font-semibold text-white mb-2">Prêt à intégrer HemaPredict™ dans votre pratique ?</h3>
+            <p className="text-slate-300 mb-4">Contactez notre équipe pour une démonstration personnalisée ou un essai clinique pilote adapté à vos besoins.</p>
+            <div className="flex items-center justify-center gap-4">
+              <Link to="/demo" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
+              <Link to="/contact" className="text-amber-300 underline">Planifier un rendez-vous</Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="py-8 text-center text-slate-500 text-sm">
+        © {new Date().getFullYear()} HemaPredict — Conçu pour les équipes de soins. Tous droits réservés.
+      </footer>
     </div>
   )
 }
