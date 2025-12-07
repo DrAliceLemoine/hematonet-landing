@@ -1,13 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import {
-  Database,
-  Activity,
-  Brain,
-  Users,
-  FileText,
-  Plug,
-} from 'lucide-react'
-import { useLanguage } from '../contexts/LanguageContext'
+import { Activity, Brain, Users } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: App })
@@ -32,7 +24,7 @@ function App() {
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Link to="/demo" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
+            <Link to="/demo/neon" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
             <Link to="/contact" className="text-amber-300 underline">Contactez notre équipe</Link>
           </div>
         </div>
@@ -101,7 +93,7 @@ function App() {
             <h3 className="text-xl font-semibold text-white mb-2">Prêt à intégrer HemaPredict™ dans votre pratique ?</h3>
             <p className="text-slate-300 mb-4">Contactez notre équipe pour une démonstration personnalisée ou un essai clinique pilote adapté à vos besoins.</p>
             <div className="flex items-center justify-center gap-4">
-              <Link to="/demo" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
+              <Link to="/demo/neon" className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg shadow">Demander une démo</Link>
               <Link to="/contact" className="text-amber-300 underline">Planifier un rendez-vous</Link>
             </div>
           </div>

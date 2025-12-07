@@ -1,169 +1,73 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
-import { useLanguage } from '../contexts/LanguageContext'
+import { Mail, Phone, MapPin, Send } from 'lucide-react'
 
 export const Route = createFileRoute('/contact')({ component: Contact })
 
 function Contact() {
-  const { t } = useLanguage()
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6 text-red-400" />,
-      title: t('contact.email'),
-      content: 'contact@hemato.tech',
-      link: 'mailto:contact@hemato.tech',
-    },
-    {
-      icon: <Phone className="w-6 h-6 text-red-400" />,
-      title: t('contact.phone'),
-      content: '+33 1 XX XX XX XX',
-      link: 'tel:+331XXXXXXXX',
-    },
-    {
-      icon: <MapPin className="w-6 h-6 text-red-400" />,
-      title: t('contact.address'),
-      content: 'Paris, France',
-      link: null,
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-red-400" />,
-      title: t('contact.hours'),
-      content: t('contact.hoursValue'),
-      link: null,
-    },
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      <section className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-rose-500/10 to-pink-500/10"></div>
-        <div className="relative max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            <span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
-              {t('contact.title')}
-            </span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('contact.subtitle')}
-          </p>
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+      <section className="py-20 px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Contact</h1>
+          <p className="text-slate-300 max-w-2xl mx-auto leading-relaxed">Pour demander une démonstration, discuter d'un projet pilote ou poser une question technique concernant HemaPredict™, contactez notre équipe.</p>
         </div>
       </section>
 
-      <section className="py-16 px-6 max-w-6xl mx-auto">
+      <section className="py-12 px-6 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {t('contact.info')}
-              </h2>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-4 bg-slate-700/50 rounded-lg"
-                  >
-                    <div className="mt-1">{info.icon}</div>
-                    <div>
-                      <h3 className="text-white font-semibold mb-1">
-                        {info.title}
-                      </h3>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          className="text-gray-300 hover:text-red-400 transition-colors"
-                        >
-                          {info.content}
-                        </a>
-                      ) : (
-                        <p className="text-gray-300">{info.content}</p>
-                      )}
-                    </div>
+            <div className="bg-slate-800/40 border border-slate-700 rounded-2xl p-6">
+              <h2 className="text-xl font-semibold text-white mb-4">Coordonnées</h2>
+              <div className="space-y-4 text-slate-300 text-sm">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-amber-400 mt-1" />
+                  <div>
+                    <div className="font-medium">Email</div>
+                    <a className="text-amber-300" href="mailto:contact@hemapredict.ai">contact@hemapredict.ai</a>
                   </div>
-                ))}
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-amber-400 mt-1" />
+                  <div>
+                    <div className="font-medium">Téléphone</div>
+                    <div>+33 1 23 45 67 89</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-amber-400 mt-1" />
+                  <div>
+                    <div className="font-medium">Siège</div>
+                    <div>Paris, France</div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                {t('contact.support')}
-              </h2>
-              <p className="text-gray-300 leading-relaxed">
-                {t('contact.supportText')}
-              </p>
+            <div className="bg-slate-800/40 border border-slate-700 rounded-2xl p-6">
+              <h2 className="text-xl font-semibold text-white mb-2">Support & partenariats</h2>
+              <p className="text-slate-300 text-sm">Nous collaborons avec des établissements hospitaliers et des équipes de recherche. Pour des demandes de partenariat ou d'accès pilote, merci de nous contacter via le formulaire ou par email.</p>
             </div>
           </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8">
-            <h2 className="text-2xl font-bold text-white mb-6">
-              {t('contact.formTitle')}
-            </h2>
+          <div className="bg-slate-800/40 border border-slate-700 rounded-2xl p-6">
+            <h2 className="text-xl font-semibold text-white mb-4">Envoyer un message</h2>
             <form className="space-y-4">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-2"
-                >
-                  {t('contact.name')}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-red-500"
-                  placeholder={t('contact.namePlaceholder')}
-                />
+                <label className="block text-sm text-slate-300 mb-1">Nom</label>
+                <input type="text" className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white" placeholder="Votre nom" />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-2"
-                >
-                  {t('contact.email')}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-red-500"
-                  placeholder={t('contact.emailPlaceholder')}
-                />
+                <label className="block text-sm text-slate-300 mb-1">Email</label>
+                <input type="email" className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white" placeholder="votre@email.com" />
               </div>
               <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-300 mb-2"
-                >
-                  {t('contact.subject')}
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-red-500"
-                  placeholder={t('contact.subjectPlaceholder')}
-                />
+                <label className="block text-sm text-slate-300 mb-1">Message</label>
+                <textarea rows={5} className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white resize-none" placeholder="Décrivez votre demande"></textarea>
               </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-2"
-                >
-                  {t('contact.message')}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-red-500 resize-none"
-                  placeholder={t('contact.messagePlaceholder')}
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-red-500/50 flex items-center justify-center gap-2"
-              >
-                <Send className="w-5 h-5" />
-                {t('contact.send')}
+              <button type="submit" className="w-full px-5 py-3 bg-amber-600 hover:bg-amber-700 text-slate-900 font-semibold rounded-lg flex items-center justify-center gap-2">
+                <Send className="w-4 h-4" /> Envoyer
               </button>
             </form>
           </div>

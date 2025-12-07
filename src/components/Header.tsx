@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="p-4 flex items-center justify-between bg-gray-800 text-white shadow-lg">
+      <header className="p-4 flex items-center justify-between bg-slate-900 text-white shadow-lg border-b border-slate-700">
         <div className="flex items-center">
           <button
             onClick={() => setIsOpen(true)}
@@ -35,10 +35,10 @@ export default function Header() {
           >
             <Menu size={24} />
           </button>
-          <h1 className="ml-4 text-xl font-semibold">
-            <Link to="/" className="flex items-center gap-2">
-              <Activity className="w-6 h-6 text-red-400" />
-              <span className="text-white">hemato.tech</span>
+          <h1 className="ml-4 text-lg font-bold">
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Activity className="w-6 h-6 text-amber-400" />
+              <span className="text-white">HemaPredict<sup className="text-xs opacity-75">™</sup></span>
             </Link>
           </h1>
         </div>
@@ -58,11 +58,11 @@ export default function Header() {
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
+        <div className="flex items-center justify-between p-4 border-b border-slate-700">
           <h2 className="text-xl font-bold">{t('nav.home')}</h2>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
             aria-label="Close menu"
           >
             <X size={24} />
@@ -73,10 +73,10 @@ export default function Header() {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-amber-600 hover:bg-amber-700 transition-colors mb-2',
             }}
           >
             <Home size={20} />
@@ -86,10 +86,10 @@ export default function Header() {
           <Link
             to="/about"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-amber-600 hover:bg-amber-700 transition-colors mb-2',
             }}
           >
             <Info size={20} />
@@ -99,10 +99,10 @@ export default function Header() {
           <Link
             to="/features"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-amber-600 hover:bg-amber-700 transition-colors mb-2',
             }}
           >
             <Zap size={20} />
@@ -112,10 +112,10 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-amber-600 hover:bg-amber-700 transition-colors mb-2',
             }}
           >
             <Mail size={20} />
@@ -125,10 +125,10 @@ export default function Header() {
           <Link
             to="/login"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-amber-600 hover:bg-amber-700 transition-colors mb-2',
             }}
           >
             <LogIn size={20} />
@@ -136,7 +136,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="p-4 border-t border-gray-700 bg-gray-800 flex flex-col gap-2">
+        <div className="p-4 border-t border-slate-700 bg-slate-800 flex flex-col gap-2">
           <ClerkHeader />
         </div>
       </aside>

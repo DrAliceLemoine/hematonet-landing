@@ -2,6 +2,8 @@ Welcome to your new TanStack app!
 
 # Getting Started
 
+[![Keyway Secrets](https://www.keyway.sh/badge.svg?repo=DrAliceLemoine/hematonet-landing)](https://www.keyway.sh/vaults/DrAliceLemoine/hematonet-landing)
+
 To run this application:
 
 ```bash
